@@ -1,28 +1,16 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import InputWindow from './InputWindow'
+import OutputWindow from './OutputWindow'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+function App() {
+  const [inputString, setInputString] = useState('[[:22 :2][:8 :2][:10 :5 :1][:10 :2 :1]]')
+  return (
+    <div className="App">
+      <InputWindow inputString={inputString} onInputStringChange={(e) => { setInputString(e) }} />
+      <OutputWindow outputString={inputString} />
+    </div>
+  );
 }
 
 export default App;
